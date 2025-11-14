@@ -1,0 +1,188 @@
+/* Skill Card Container */
+.skill-card {
+  position: relative;
+  padding: 30px 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Hover Effects for Card */
+.skill-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Glowing Background Effect on Hover */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Percentage Animation */
+.skill-percentage {
+  font-size: 100px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 20px currentColor;
+}
+
+.skill-card:hover .skill-percentage {
+  transform: scale(1.1);
+  text-shadow: 
+    0 0 30px currentColor,
+    0 0 50px currentColor;
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Progress Bar Styling */
+.progress {
+  height: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+}
+
+.progress-bar-animated {
+  height: 100%;
+  border-radius: 10px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Progress Bar Hover Animation */
+.skill-card:hover .progress-bar-animated {
+  animation: progress-fill 1.5s ease-in-out;
+  box-shadow: 0 0 20px currentColor;
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0 !important;
+  }
+  100% {
+    width: var(--progress-width);
+  }
+}
+
+/* Shimmer Effect on Progress Bar */
+.progress-bar-animated::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.skill-card:hover .progress-bar-animated::after {
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Skill Name Animation */
+.skill-name {
+  font-size: 25px;
+  margin-top: 13px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.skill-card:hover .skill-name {
+  transform: translateX(10px);
+  letter-spacing: 2px;
+}
+
+/* Skill Name Underline Effect */
+.skill-name::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: currentColor;
+  transition: width 0.4s ease;
+}
+
+.skill-card:hover .skill-name::after {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 20px 15px;
+  }
+  
+  .skill-percentage {
+    font-size: 70px;
+  }
+  
+  .skill-name {
+    font-size: 20px;
+  }
+}

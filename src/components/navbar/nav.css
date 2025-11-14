@@ -1,0 +1,195 @@
+/* Navbar Link Base Styling */
+.navbar .nav-link {
+  position: relative;
+  padding: 10px 20px !important;
+  margin: 0 5px;
+  font-weight: 500;
+  color: #fbd9ad !important;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Effect 1: Animated Bottom Border (Default) */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8e46ba, #b061df, #8e46ba);
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px #b061df;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* Effect 2: Glowing Background on Hover */
+.navbar .nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(176, 97, 223, 0.15) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: 8px;
+}
+
+.navbar .nav-link:hover::before {
+  opacity: 1;
+}
+
+/* Effect 3: Border Glow Animation on Hover */
+.navbar .nav-link:hover {
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(176, 97, 223, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Effect 4: Icon Animation */
+.navbar .nav-link svg {
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover svg {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 5px #b061df);
+}
+
+/* Effect 5: Active Link Styling */
+.navbar .nav-link.active {
+  color: #b061df !important;
+  font-weight: 600;
+  border-radius: 8px;
+  background: rgba(176, 97, 223, 0.1);
+  box-shadow: 0 0 15px rgba(176, 97, 223, 0.3);
+}
+
+/* Alternative Effect: Full Border Animation */
+.navbar .nav-item {
+  position: relative;
+}
+
+.navbar .nav-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.navbar .nav-item:hover::before {
+  width: 100%;
+  border-color: #b061df;
+  box-shadow: 0 0 20px rgba(176, 97, 223, 0.5);
+  animation: border-pulse 1.5s infinite;
+}
+
+@keyframes border-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(176, 97, 223, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(176, 97, 223, 0.7);
+  }
+}
+
+/* Effect: Sliding Border from Left to Right */
+.navbar .nav-link.slide-border {
+  position: relative;
+}
+
+.navbar .nav-link.slide-border::after {
+  left: 0;
+  transform: translateX(0);
+}
+
+.navbar .nav-link.slide-border:hover::after {
+  width: 100%;
+}
+
+/* Mobile Responsive Styling */
+@media (max-width: 768px) {
+  .navbar .nav-link {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .navbar .nav-link::after {
+    bottom: 5px;
+  }
+}
+
+/* Sticky Navbar Animation Enhancement */
+.sticky .nav-link {
+  padding: 8px 18px !important;
+}
+
+/* Logo Hover Effect */
+.navbar .logo {
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
+}
+
+.navbar .logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  border: 2px solid #b061df;
+  box-shadow: 0 0 20px rgba(176, 97, 223, 0.6);
+}
+
+/* Navbar Brand Heading Animation */
+#navhead {
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px transparent;
+}
+
+.navbar-brand:hover #navhead {
+  color: #b061df !important;
+  text-shadow: 0 0 15px rgba(176, 97, 223, 0.8);
+  transform: translateX(5px);
+}
+
+/* Hamburger Menu Animation */
+.navbar-toggler span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #b061df;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px rgba(176, 97, 223, 0.5);
+}
+
+.navbar-toggler:hover span {
+  background: #8e46ba;
+  box-shadow: 0 0 10px rgba(176, 97, 223, 0.8);
+}
+
+.navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+
+.navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
