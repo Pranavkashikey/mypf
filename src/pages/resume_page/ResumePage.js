@@ -55,9 +55,16 @@ function Resume() {
                 </Button>
               </div>
               <div className="resume d-flex justify-content-center">
-                <Document file={resumeLink}>
-                  <Page pageNumber={1} scale={width > 786 ? 1.6 : 0.4} />
-                </Document>
+<div className="text-center mt-4">
+  <iframe
+    src={resumeLink}
+    width="80%"
+    height="900px"
+    title="Resume"
+    style={{ border: "none" }}
+  />
+</div>
+
               </div>
               <div className="d-flex justify-content-center">
                 <Button 
