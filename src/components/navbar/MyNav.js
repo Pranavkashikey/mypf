@@ -3,11 +3,9 @@ import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ImBlog } from "react-icons/im";
 import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
+  AiOutlineHome
 } from "react-icons/ai";
-import { FaBlog } from "react-icons/fa";
+
 import "../../style.css";
 import "./nav.css"; // Add this CSS file
 import { CgFileDocument } from "react-icons/cg";
