@@ -8,7 +8,7 @@ import rtc from "../../images/rtc.png";
 import pp from "../../images/pp.png";
 import { FaCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { HiArrowRight } from "react-icons/hi";
+
 import "./projects.css"
 
 export default function Projects() {
